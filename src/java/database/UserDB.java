@@ -34,6 +34,7 @@ public class UserDB {
             em.close();
         }
     }
+    
 
     public int update(User user) throws NotesDBException {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
@@ -57,6 +58,17 @@ public class UserDB {
         try {
             List<User> users = em.createNamedQuery("User.findAll", User.class).getResultList();
             return users;                
+        } finally {
+            em.close();
+        }
+    }
+     public User getUserbyEmail(String email) throws NotesDBException {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+            User useremail = em.createNamedQuery("User.findByEmail", User.class).setParameter("email", email).getSingleResult();
+            
+            
+            return useremail;                
         } finally {
             em.close();
         }

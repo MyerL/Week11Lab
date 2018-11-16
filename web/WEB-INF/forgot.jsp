@@ -1,5 +1,5 @@
 <%-- 
-    Document   : login
+    Document   : forgot
     Created on : 7-Nov-2018, 9:34:21 AM
     Author     : awarsyle
 --%>
@@ -9,16 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>Forgot</title>
     </head>
     <body>
-        <h1>Login Page</h1>
-        <form method="post" action="login">
-            username: <input type="text" required name="username"><br>
-            password: <input type="password" required name="password"><br>
+        <h1>Forgot Password</h1>
+        Please enter your email address to retrieve your password. <br>
+
+        <form method="post" action="forgot">
+            Email Address: <input type="text" required name="emailaddress"><br>
+
             <input type="submit" value="Submit">
             <br>
-            Forgot Password? Click <a href="forgot">here</a> 
+            ${confirm}
         </form>
     </body>
 </html>
