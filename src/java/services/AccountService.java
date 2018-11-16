@@ -70,6 +70,7 @@ public class AccountService {
             String template = path + "/emailtemplates/oops.html";
             
             GmailService.sendMail(email,subject,template,tags);
+            
             return true;
             
         } catch (NotesDBException ex) {

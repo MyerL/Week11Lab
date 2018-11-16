@@ -46,12 +46,10 @@ public class ForgotPasswordServlet extends HttpServlet {
             User user = udb.getUserbyEmail(email);
             
             
-            boolean sent = as.forgotPassword(email, getServletContext().getRealPath("/WEB-INF"));
-            if(sent==true)
+    
+        if(as.forgotPassword(user.getEmail(), getServletContext().getRealPath("/WEB-INF")) == true)
             {
                 request.setAttribute("confirm", "email sent.");
-                
-                
             }
             
             getServletContext().getRequestDispatcher("/WEB-INF/forgot.jsp").forward(request, response);
